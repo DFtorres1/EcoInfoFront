@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "es5", "es6"],
+    "module": "ESNext",
+    "baseUrl": ".",
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"],
+  "extends": "@tsconfig/react-native/tsconfig.json"
+}

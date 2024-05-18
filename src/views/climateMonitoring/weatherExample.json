@@ -1,0 +1,31 @@
+{
+  "base": "stations",
+  "clouds": { "all": 100 },
+  "cod": 200,
+  "coord": { "lat": 4.35, "lon": 74.04 },
+  "dt": 1716019010,
+  "id": 1282027,
+  "main": {
+    "feels_like": 306.53,
+    "grnd_level": 1008,
+    "humidity": 79,
+    "pressure": 1007,
+    "sea_level": 1007,
+    "temp": 301.72,
+    "temp_max": 301.72,
+    "temp_min": 301.72
+  },
+  "name": "Malé",
+  "sys": { "country": "MV", "sunrise": 1715993439, "sunset": 1716037809 },
+  "timezone": 18000,
+  "visibility": 10000,
+  "weather": [
+    {
+      "description": "overcast clouds",
+      "icon": "04d",
+      "id": 804,
+      "main": "Clouds"
+    }
+  ],
+  "wind": { "deg": 273, "gust": 15.28, "speed": 11.24 }
+}

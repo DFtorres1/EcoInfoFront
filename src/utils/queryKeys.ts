@@ -5,6 +5,7 @@ const companyTypeQueryKeys = generateQueryKeys("companyTypeKeys");
 const storeQueryKeys = generateQueryKeys("storeKeys");
 const productQueryKeys = generateQueryKeys("productKeys");
 const productCategoryQueryKeys = generateQueryKeys("productCategoryKeys");
+const weatherQueryKeys = generateQueryKeys("weatherKeys");
 
 export {
   companyQueryKeys,
@@ -12,4 +13,5 @@ export {
   storeQueryKeys,
   productQueryKeys,
   productCategoryQueryKeys,
+  weatherQueryKeys
 };

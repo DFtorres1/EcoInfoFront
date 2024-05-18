@@ -4,8 +4,8 @@ export const GlobalStyles = StyleSheet.create({
     root: {
       padding: 20,
       backgroundColor: "#FFF9D0",
-      top: 0,
-      paddingBottom: 100
+      minHeight: 900,
+      paddingBottom: 160
     },
     title: {
       padding: 20,

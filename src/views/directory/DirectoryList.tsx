@@ -1,9 +1,10 @@
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { FlatList, SafeAreaView, Text, View } from "react-native";
 import useCompanyType from "./hooks/useCompanyTypeDetail";
 import { useEffect } from "react";
 import useCompanyDetail from "./hooks/useCompanyDetail";
 import useStoreList from "./hooks/useStoreList";
-import { GlobalStyles } from "../Styles";
+import { GlobalStyles } from "../../utils/Styles";
+import LoadingScreen from "src/utils/LoadingScreen";
 
 const RenderCompanyList = ({ store }: { store: Store }) => {
   const {
@@ -22,10 +23,7 @@ const RenderCompanyList = ({ store }: { store: Store }) => {
     console.log(companyTypeError, companyError);
   }, [companyTypeError, companyError]);
 
-  if (companyTypeLoading || storeCompanyLoading)
-    <View>
-      <Text>Cargando Local</Text>
-    </View>;
+  if (companyTypeLoading || storeCompanyLoading) return <LoadingScreen />;
 
   return (
     <View style={GlobalStyles.listItem}>
@@ -39,26 +37,31 @@ const RenderCompanyList = ({ store }: { store: Store }) => {
 };
 
 const DirectoryList = () => {
-  const { data: storeList, isLoading: storesLoading, error } = useStoreList();
+  const {
+    data: storeList,
+    isLoading: storesLoading,
+    error: storeListError,
+  } = useStoreList();
 
   useEffect(() => {
-    console.log(error);
-  }, [error]);
+    console.log(storeListError);
+  }, [storeListError]);
 
-  if (storesLoading)
-    <View>
-      <Text>Cargando Empresa</Text>
-    </View>;
+  if (storesLoading) return <LoadingScreen />;
 
   return (
     <SafeAreaView style={GlobalStyles.root}>
       <Text style={GlobalStyles.title}>Directorio</Text>
-      <FlatList
-        data={storeList}
-        renderItem={({ item, index }) => (
-          <RenderCompanyList key={index} store={item} />
-        )}
-      />
+      {storeList ? (
+        <FlatList
+          data={storeList}
+          renderItem={({ item, index }) => (
+            <RenderCompanyList key={index} store={item} />
+          )}
+        />
+      ) : (
+        <Text style={GlobalStyles.title}>No hay items por mostrar</Text>
+      )}
     </SafeAreaView>
   );
 };

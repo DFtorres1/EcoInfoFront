@@ -22,7 +22,7 @@ const onRequest = (
   const api = getCustomAxiosInstance(
     axios.create({
       // baseURL: import.meta.env.API_URL as string,
-      baseURL: "http://localhost:8000/api",
+      baseURL: "http://192.168.200.105:8000/api",
       withCredentials: false,
     })
   );

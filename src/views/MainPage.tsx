@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import {
   FlatList,
   Pressable,
@@ -10,12 +10,6 @@ import {
   View,
 } from "react-native";
 
-type RootStackParamList = {
-  Home: undefined
-  MainPage: undefined;
-  Products: undefined
-};
-
 type MenuItem = {
   id: string;
   title: string;
@@ -23,6 +17,9 @@ type MenuItem = {
   navigate: string;
   navProps?: {};
 };
+
+// Any due to recursive routes
+type NavProps = NativeStackNavigationProp<any>;
 
 const mockItems: MenuItem[] = [
   {
@@ -53,7 +50,7 @@ const mockItems: MenuItem[] = [
 ];
 
 const MainPage = () => {
-  const navigation = useNavigation<NativeStackScreenProps<RootStackParamList>>();
+  const navigation = useNavigation<NavProps>();
 
   const renderItem = ({ item }: { item: MenuItem }) => {
     return (

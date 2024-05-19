@@ -5,10 +5,11 @@ import {
   Pressable,
   StatusBar,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from "react-native";
+import { Card, Divider, Text } from "react-native-paper";
+import { GlobalStyles } from "src/utils/Styles";
 
 type MenuItem = {
   id: string;
@@ -54,14 +55,19 @@ const MainPage = () => {
 
   const renderItem = ({ item }: { item: MenuItem }) => {
     return (
-      <TouchableOpacity
+      <Card
+        elevation={2}
+        style={GlobalStyles.listItem}
         onPress={() => {
           navigation.navigate(item.navigate);
         }}
-        style={[styles.item]}
       >
-        <Text style={[styles.title]}>{item.title}</Text>
-      </TouchableOpacity>
+        <Card.Content>
+          <Text variant="headlineSmall" style={GlobalStyles.menuTitle}>
+            {item.title}
+          </Text>
+        </Card.Content>
+      </Card>
     );
   };
 
@@ -75,20 +81,5 @@ const MainPage = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  title: {
-    fontSize: 32,
-  },
-});
 
 export default MainPage;

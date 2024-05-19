@@ -13,7 +13,7 @@ const ClimateMonitoring = () => {
   const {
     data: currentWeather,
     isLoading: weatherloading,
-    refetch: refetchWeather,
+    error: weatherError
   } = useCurrentWeather(
     currentCity?.coord.lat ?? 35.6895,
     currentCity?.coord.lon ?? 139.69171
@@ -39,9 +39,8 @@ const ClimateMonitoring = () => {
   };
 
   useEffect(() => {
-    console.log("Refetching weather...");
-    console.log(currentWeather);
-  }, [currentCity]);
+    console.log(weatherError);
+  }, [weatherError]);
 
   return (
     <ScrollView>

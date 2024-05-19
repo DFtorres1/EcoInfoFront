@@ -72,7 +72,7 @@ const MainPage = () => {
   };
 
   return (
-    <View>
+    <View style={GlobalStyles.root}>
       <FlatList
         data={mockItems}
         renderItem={renderItem}

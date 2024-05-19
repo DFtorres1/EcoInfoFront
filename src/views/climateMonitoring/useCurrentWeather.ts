@@ -5,22 +5,21 @@ import { weatherQueryKeys } from "src/utils/queryKeys";
 const getCurrentWeather = async (
   lat: number,
   lon: number,
-  apiKey: string
 ): Promise<WeatherData> => {
   const { data } = await axios.get(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=55bf7eb35bbec449dbc16d1e0ea50882`
   );
   return data;
 };
 
-const useCurrentWeather = (lat: number, lon: number, apiKey: string) => {
+const useCurrentWeather = (lat: number, lon: number) => {
   return useQuery<WeatherData>(
-    weatherQueryKeys.detail(),
-    async () => getCurrentWeather(lat, lon, apiKey),
+    weatherQueryKeys.detail(lat),
+    async () => getCurrentWeather(lat, lon),
     {
       staleTime: Infinity,
       notifyOnChangeProps: ["data", "error"],
-      enabled: !!apiKey,
+      enabled: !!lat,
     }
   );
 };

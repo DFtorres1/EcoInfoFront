@@ -28,10 +28,13 @@ const RenderCompanyList = ({ store }: { store: Store }) => {
 
   return (
     <Card elevation={2} style={GlobalStyles.listItem}>
-      <Card.Title title={store.name} subtitle={`${storeCompany?.name} - ${companyType?.name}`} />
+      <Card.Title
+        title={store.name}
+        subtitle={`${storeCompany?.name} - ${companyType?.name}`}
+      />
       <Card.Content>
         <Text variant="bodyMedium" style={GlobalStyles.listDescription}>
-        {store.direction}
+          {store.direction}
         </Text>
       </Card.Content>
     </Card>
@@ -49,12 +52,12 @@ const DirectoryList = () => {
     console.log(storeListError);
   }, [storeListError]);
 
-  if (storesLoading) return <LoadingScreen />;
-
   return (
     <SafeAreaView style={GlobalStyles.root}>
       <Text style={GlobalStyles.title}>Directorio</Text>
-      {storeList ? (
+      {storesLoading ? (
+        <LoadingScreen />
+      ) : storeList ? (
         <FlatList
           data={storeList}
           renderItem={({ item, index }) => (

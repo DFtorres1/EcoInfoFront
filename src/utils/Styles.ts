@@ -15,7 +15,7 @@ export const GlobalStyles = StyleSheet.create({
       padding: 10,
     },
     listItem: {
-      backgroundColor: "#D2E9E9",
+      backgroundColor: "#F8F6F4",
       padding: 8,
       margin: 25,
       marginVertical: 15

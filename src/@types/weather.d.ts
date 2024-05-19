@@ -20,6 +20,10 @@ type City = {
   coord: Coord;
 };
 
+type Country = {
+  name: string;
+};
+
 type Coord = {
   lat: number;
   lon: number;

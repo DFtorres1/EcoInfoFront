@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const GlobalStyles = StyleSheet.create({
     root: {
       padding: 20,
-      backgroundColor: "#FFF9D0",
+      backgroundColor: "#E3F4F4",
       minHeight: 900,
       paddingBottom: 160
     },
@@ -12,11 +12,10 @@ export const GlobalStyles = StyleSheet.create({
       fontSize: 40,
     },
     listItem: {
-      backgroundColor: "#A0DEFF",
+      backgroundColor: "#D2E9E9",
       padding: 8,
       margin: 5,
-      borderCurve: "circular",
-      borderRadius: 20,
+      marginVertical: 15
     },
     listTitle: {
       padding: 8,

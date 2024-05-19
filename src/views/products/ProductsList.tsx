@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { FlatList, SafeAreaView, Text, View } from "react-native";
+import { FlatList, SafeAreaView, View } from "react-native";
 import { GlobalStyles } from "src/utils/Styles";
 import useProductCategory from "./hooks/useProductType";
 import LoadingScreen from "src/utils/LoadingScreen";
 import useProductsList from "./hooks/useProductsList";
+import { Card, Text } from "react-native-paper";
 
 const RenderProductList = ({ product }: { product: Product }) => {
   const {
@@ -20,11 +21,14 @@ const RenderProductList = ({ product }: { product: Product }) => {
     return <LoadingScreen />;
 
   return (
-    <View style={GlobalStyles.listItem}>
-      <Text style={GlobalStyles.listTitle}>{product.name}</Text>
-      <Text style={GlobalStyles.listSubTitle}>{productCategory?.name}</Text>
-      <Text style={GlobalStyles.listDescription}>{product.description}</Text>
-    </View>
+    <Card elevation={2} style={GlobalStyles.listItem}>
+      <Card.Title title={product.name} subtitle={productCategory?.name} />
+      <Card.Content>
+        <Text variant="bodyMedium" style={GlobalStyles.listDescription}>
+          {product.description}
+        </Text>
+      </Card.Content>
+    </Card>
   );
 };
 

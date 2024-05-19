@@ -1,10 +1,11 @@
-import { FlatList, SafeAreaView, Text, View } from "react-native";
+import { FlatList, SafeAreaView } from "react-native";
 import useCompanyType from "./hooks/useCompanyTypeDetail";
 import { useEffect } from "react";
 import useCompanyDetail from "./hooks/useCompanyDetail";
 import useStoreList from "./hooks/useStoreList";
 import { GlobalStyles } from "../../utils/Styles";
 import LoadingScreen from "src/utils/LoadingScreen";
+import { Card, Text } from "react-native-paper";
 
 const RenderCompanyList = ({ store }: { store: Store }) => {
   const {
@@ -26,13 +27,14 @@ const RenderCompanyList = ({ store }: { store: Store }) => {
   if (companyTypeLoading || storeCompanyLoading) return <LoadingScreen />;
 
   return (
-    <View style={GlobalStyles.listItem}>
-      <Text style={GlobalStyles.listTitle}>{store.name}</Text>
-      <Text style={GlobalStyles.listSubTitle}>
-        {storeCompany?.name} - {companyType?.name}
-      </Text>
-      <Text style={GlobalStyles.listDescription}>{store.direction}</Text>
-    </View>
+    <Card elevation={2} style={GlobalStyles.listItem}>
+      <Card.Title title={store.name} subtitle={`${storeCompany?.name} - ${companyType?.name}`} />
+      <Card.Content>
+        <Text variant="bodyMedium" style={GlobalStyles.listDescription}>
+        {store.direction}
+        </Text>
+      </Card.Content>
+    </Card>
   );
 };
 

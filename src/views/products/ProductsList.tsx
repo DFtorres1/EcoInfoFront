@@ -17,9 +17,6 @@ const RenderProductList = ({ product }: { product: Product }) => {
     console.log(productCategoryError);
   }, [productCategoryError]);
 
-  if (productCategoryLoading || productCategoryLoading)
-    return <LoadingScreen />;
-
   return (
     <Card elevation={2} style={GlobalStyles.listItem}>
       <Card.Title title={product.name} subtitle={productCategory?.name} />
@@ -47,7 +44,7 @@ const ProductsList = () => {
 
   return (
     <SafeAreaView style={GlobalStyles.root}>
-      <Text style={GlobalStyles.title}>Directorio</Text>
+      <Text style={GlobalStyles.title}>Productos</Text>
       {productList ? (
         <FlatList
           data={productList}

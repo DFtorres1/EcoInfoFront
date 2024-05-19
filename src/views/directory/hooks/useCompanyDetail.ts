@@ -9,7 +9,7 @@ const getCompanyDetail = async (id?: string): Promise<Company> => {
 
 const useCompanyDetail = (id?: string) => {
   return useQuery<Company>(
-    companyQueryKeys.detail(id ? +id : 0),
+    companyQueryKeys.detail(id ?? 0),
     async () => getCompanyDetail(id),
     {
       staleTime: Infinity,

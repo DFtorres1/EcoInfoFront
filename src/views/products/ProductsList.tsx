@@ -14,7 +14,7 @@ const RenderProductList = ({ product }: { product: Product }) => {
   } = useProductCategory(product?.product_category_id);
 
   useEffect(() => {
-    console.log(productCategoryError);
+    console.log("Error en el producto", productCategoryError);
   }, [productCategoryError]);
 
   return (
@@ -37,7 +37,7 @@ const ProductsList = () => {
   } = useProductsList();
 
   useEffect(() => {
-    console.log(productListError);
+    console.log("Error en el producto", productListError);
   }, [productListError]);
 
   if (productsLoading) return <LoadingScreen />;

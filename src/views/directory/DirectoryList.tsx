@@ -21,7 +21,7 @@ const RenderCompanyList = ({ store }: { store: Store }) => {
   } = useCompanyType(storeCompany?.company_type_id);
 
   useEffect(() => {
-    console.log(companyTypeError, companyError);
+    console.log("Error en la compañia", companyTypeError, companyError);
   }, [companyTypeError, companyError]);
 
   if (companyTypeLoading || storeCompanyLoading) return <LoadingScreen />;
@@ -49,7 +49,7 @@ const DirectoryList = () => {
   } = useStoreList();
 
   useEffect(() => {
-    console.log(storeListError);
+    console.log("Error en la tienda", storeListError);
   }, [storeListError]);
 
   return (
